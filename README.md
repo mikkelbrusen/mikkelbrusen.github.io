@@ -5,7 +5,7 @@ Boilerplate
 
 First, clone the skeleton repository:
 
-`git clone -o boilerplate ssh://git@github.com/user/proj.git new_repo`
+`git clone -o boilerplate https://github.com/mikkelbrusen/boilerplate.git new_repo`
 
 Then, cd to the repo:
 
