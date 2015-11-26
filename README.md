@@ -5,20 +5,17 @@ Boilerplate
 
 First, clone the skeleton repository:
 
-`git clone ssh://git@github.com/user/proj.git new_proj`
+`git clone -o boilerplate ssh://git@github.com/user/proj.git new_repo`
 
-Then, cd to the repo, and get rid of the origin remote:
+Then, cd to the repo:
 
-```
-cd new_repo
-git remote rm origin
-```
+`cd new_repo`
 
 And finally, create a new remote for the project (you may want to create a new project in github first):
 
-`git remote add origin ssh://git@github.com/user/new_proj.git`
+`git remote add origin ssh://git@github.com/user/new_repo.git`
 
-Now, when you do git push origin master, it should update the new project.
+`git push origin master`
 
 
 ### How to run project
