@@ -15,8 +15,9 @@
   },
   "main": "index.js",
   "dependencies": {
-    "express": "^4.10.4",
-    "body-parser": "^1.9.3"
+    "body-parser": "^1.9.3",
+    "dropbox": "^0.10.3",
+    "express": "^4.10.4"
   },
   "scripts": {
     "start": "node server.js",

@@ -21,8 +21,21 @@
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<script type="text/javascript" src="/assets/js/min/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/assets/js/min/main.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.10.2/dropbox.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 </head>
 	<body>
-		
+		<main>
+			<div class="account">
+				<button class="hidden" id="signin-button">Sign In</button>
+				<button id="account-button">Account Info</button>
+			</div>
+			<form id="fileInfo">
+				<input type="text" placeholder="File Name e.g. Hello-World">
+				<input type="text" placeholder="Sub Folder e.g. Bach">
+			</form>
+			<button name="add">Add File</button>
+			<button name="reset">Reset</button>
+		</main>
 	</body>
 </html>
