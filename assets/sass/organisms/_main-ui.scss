@@ -1,11 +1,56 @@
 button{
 	margin: 5px;
 }
-
-.account{
-	padding-bottom: 40px;
-}
-
 form{
 	margin: 0px;
 }
+#myClass{
+	float: left;
+    width: 50%;
+}
+
+.cc-selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+.druid{background-image:url("/assets/img/classes/druid.gif");}
+.hunter{background-image:url("/assets/img/classes/hunter.gif");}
+.mage{background-image:url("/assets/img/classes/mage.gif");}
+.paladin{background-image:url("/assets/img/classes/paladin.gif");}
+.priest{background-image:url("/assets/img/classes/priest.gif");}
+.rogue{background-image:url("/assets/img/classes/rogue.gif");}
+.shaman{background-image:url("/assets/img/classes/shaman.gif");}
+.warlock{background-image:url("/assets/img/classes/warlock.gif");}
+.warrior{background-image:url("/assets/img/classes/warrior.gif");}
+
+.cc-selector input:active +.class-cc{opacity: 1;}
+.cc-selector input:checked +.class-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.class-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:140px;height:160px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: grayscale(.5) opacity(.7);
+       -moz-filter: grayscale(.5) opacity(.7);
+            filter: grayscale(.5) opacity(.7);
+}
+.class-cc:hover{
+    -webkit-filter: grayscale(.2) opacity(.9);
+       -moz-filter: grayscale(.2) opacity(.9);
+            filter: grayscale(.2) opacity(.9);
+}
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}

@@ -22,20 +22,67 @@
 	<script type="text/javascript" src="/assets/js/min/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/assets/js/min/main.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.10.2/dropbox.min.js"></script>
-<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 </head>
 	<body>
 		<main>
 			<div class="account">
 				<button class="hidden" id="signin-button">Sign In</button>
-				<button id="account-button">Account Info</button>
 			</div>
-			<form id="fileInfo">
-				<input type="text" placeholder="File Name e.g. Hello-World">
-				<input type="text" placeholder="Sub Folder e.g. Bach">
+			<form>
+				<input id="user" type="text" placeholder="Username">
 			</form>
-			<button name="add">Add File</button>
-			<button name="reset">Reset</button>
+			<div class="form-container">
+			<form id="myClass">
+				<div class="cc-selector">
+				<input id="mdruid" type="radio" name="myClass" value="Druid" checked>
+					<label class="class-cc druid" for="mdruid"></label>
+				<input id="mhunter" type="radio" name="myClass" value="Hunter">
+					<label class="class-cc hunter" for="mhunter"></label>
+				<input id="mmage" type="radio" name="myClass" value="Mage">
+					<label class="class-cc mage" for="mmage"></label>
+				<input id="mpaladin" type="radio" name="myClass" value="Paladin">
+					<label class="class-cc paladin" for="mpaladin"></label>
+				<input id="mpriest"type="radio" name="myClass" value="Priest">
+					<label class="class-cc priest" for="mpriest"></label>
+				<input id="mrogue" type="radio" name="myClass" value="Rogue">
+					<label class="class-cc rogue" for="mrogue"></label>
+				<input id="mshaman" type="radio" name="myClass" value="Shaman">
+					<label class="class-cc shaman" for="mshaman"></label>
+				<input id="mwarlock" type="radio" name="myClass" value="Warlock">
+					<label class="class-cc warlock" for="mwarlock"></label>
+				<input id="mwarrior" type="radio" name="myClass" value="Warrior">
+					<label class="class-cc warrior" for="mwarrior"></label>
+				</div>
+			</form>
+			<form id="theirClass">
+				<div class="cc-selector">
+				<input id="tdruid" type="radio" name="theirClass" value="Druid" checked>
+					<label class="class-cc druid" for="tdruid"></label>
+				<input id="thunter" type="radio" name="theirClass" value="Hunter">
+					<label class="class-cc hunter" for="thunter"></label>
+				<input id="tmage" type="radio" name="theirClass" value="Mage">
+					<label class="class-cc mage" for="tmage"></label>
+				<input id="tpaladin" type="radio" name="theirClass" value="Paladin">
+					<label class="class-cc paladin" for="tpaladin"></label>
+				<input id="tpriest"type="radio" name="theirClass" value="Priest">
+					<label class="class-cc priest" for="tpriest"></label>
+				<input id="trogue" type="radio" name="theirClass" value="Rogue">
+					<label class="class-cc rogue" for="trogue"></label>
+				<input id="tshaman" type="radio" name="theirClass" value="Shaman">
+					<label class="class-cc shaman" for="tshaman"></label>
+				<input id="twarlock" type="radio" name="theirClass" value="Warlock">
+					<label class="class-cc warlock" for="twarlock"></label>
+				<input id="twarrior" type="radio" name="theirClass" value="Warrior">
+					<label class="class-cc warrior" for="twarrior"></label>
+				</div>
+			</form>
+			</div>
+			<form id="result">
+				<input type="radio" name="result" value="Win" checked>Win
+				<input type="radio" name="result" value="Loss">Loss
+			</form>
+			<button name="add">Submit</button>
 		</main>
 	</body>
 </html>
