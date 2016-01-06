@@ -8,7 +8,6 @@
 *.pem
 *.crt
 *.pfx
-*.css
 *.sass-cache
 *.map
 *umwelt-hi-proto.min.js
