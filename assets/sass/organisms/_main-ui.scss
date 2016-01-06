@@ -1,6 +1,7 @@
 button{
 	margin: 5px;
 	background-color: black;
+    color: white;
 	&:hover{
 		color: inherit;
 		background: #313131;
@@ -78,8 +79,3 @@ form{
        -moz-filter: grayscale(.2) opacity(.9);
             filter: grayscale(.2) opacity(.9);
 }
-
-/* Extras */
-a:visited{color:#888}
-a{color:#444;text-decoration:none;}
-p{margin-bottom:.3em;}

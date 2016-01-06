@@ -40,12 +40,6 @@ $(function() {
       }
       count += 1;
       console.log("file uploaded");
-      console.log(user);
-      console.log(myClass);
-      console.log(theirClass);
-      console.log(result);
-      console.log(count);
-
     });
   }
 });
