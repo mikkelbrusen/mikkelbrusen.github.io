@@ -26,13 +26,6 @@
 </head>
 	<body>
 		<main>
-			<div class="account">
-				<button class="hidden" id="signin-button">Sign In</button>
-			</div>
-			<form>
-				<input id="user" type="text" placeholder="Username">
-			</form>
-			<div class="form-container">
 			<form id="myClass">
 				<div class="cc-selector">
 				<input id="mdruid" type="radio" name="myClass" value="Druid" checked>
@@ -55,6 +48,18 @@
 					<label class="class-cc warrior" for="mwarrior"></label>
 				</div>
 			</form>
+			<div class="middle">
+				<form>
+					<input id="user" type="text" placeholder="Username">
+				</form>
+				<div class="white">
+					<form id="result">
+						<input type="radio" name="result" value="Win" checked>Win
+						<input type="radio" name="result" value="Loss">Loss
+					</form>
+					<button name="add">Submit</button>
+				</div>
+			</div>
 			<form id="theirClass">
 				<div class="cc-selector">
 				<input id="tdruid" type="radio" name="theirClass" value="Druid" checked>
@@ -77,12 +82,6 @@
 					<label class="class-cc warrior" for="twarrior"></label>
 				</div>
 			</form>
-			</div>
-			<form id="result">
-				<input type="radio" name="result" value="Win" checked>Win
-				<input type="radio" name="result" value="Loss">Loss
-			</form>
-			<button name="add">Submit</button>
 		</main>
 	</body>
 </html>

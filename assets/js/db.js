@@ -13,18 +13,12 @@ $(function() {
       // Cached credentials are available, make Dropbox API calls.
       console.log("cached")
     } else {
-      // show and set up the "Sign into Dropbox" button
-      var button = document.querySelector("#signin-button");
-      button.setAttribute("class", "visible");
-      button.addEventListener("click", function() {
-        // The user will have to click an 'Authorize' button.
-        client.authenticate(function(error, client) {
-          if (error) {
-            console.log("error");
-            return;
-          }
-          button.setAttribute("class", "visible");
-        });
+      client.authenticate(function(error, client) {
+        if (error) {
+          console.log("error");
+          return;
+        }
+        button.setAttribute("class", "visible");
       });
     }
   });

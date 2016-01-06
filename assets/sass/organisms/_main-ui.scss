@@ -1,12 +1,41 @@
 button{
 	margin: 5px;
+	background-color: black;
+	&:hover{
+		color: inherit;
+		background: #313131;
+	}
+}
+.white{
+	color: white;
 }
 form{
 	margin: 0px;
 }
+#result input{
+	margin-right: 5px;
+}
 #myClass{
 	float: left;
-    width: 50%;
+    width: 40%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#theirClass{
+	float: right;
+	width: 40%;
+	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.middle{
+	width: 20%;
+	float: left;
+	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .cc-selector input{
