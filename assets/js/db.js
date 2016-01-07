@@ -43,20 +43,57 @@ $(function() {
   }
 
   // Get Personal Statistics
-  var pDruidS = $('#pDruidS');
+  var classes = {
+    Druid:NaN,
+    Hunter:NaN,
+    Mage:NaN,
+    Paladin:NaN,
+    Priest:NaN,
+    Rogue:NaN,
+    Shaman:NaN,
+    Warlock:NaN,
+    Warrior:NaN
+  };
 
   function getPersonalStats(){
     console.log("getPersonalStatsClicked");
-
+    
     var user = $('#login').val();
+    var stats = classes;
+    auxReadPClass(user);
 
-    pDruidS.html("5");
 
-
+    $("#personalS").removeClass("hide").addClass("show");
   }
 
-  function auxReadPClass(c){
-    //client.readFile
+  function auxReadPClass(s){
+    client.stat("/space/Users/"+s+"/Statistics/",{"readDir":true},function(error,stat,cstats){
+      if (error){
+        console.log("user not found");
+        $(".stats-not-avail").setAttribute("class", "visible");
+        return showError(error);
+      }
+      console.log("stats found");
+
+      var temp = [];
+      var result = classes;
+      for (var i = cstats.length - 1; i >= 0; i--) {
+        temp = cstats[i].name.split("_");
+        result[temp[0]] = (parseFloat(temp[1])/(parseFloat(temp[2])+parseFloat(temp[1])))*100;
+      };
+      //$(".stats-not-avail").setAttribute("class", "hidden");
+      console.table(result);
+      $("#pDruidS").html(result.Druid.toFixed(0)+" %");
+      $("#pHunterS").html(result.Hunter.toFixed(0)+" %");
+      $("#pMageS").html(result.Mage.toFixed(0)+" %");
+      $("#pPaladinS").html(result.Paladin.toFixed(0)+" %");
+      $("#pPriestS").html(result.Priest.toFixed(0)+" %");
+      $("#pRogueS").html(result.Rogue.toFixed(0)+" %");
+      $("#pShamanS").html(result.Shaman.toFixed(0)+" %");
+      $("#pWarlockS").html(result.Warlock.toFixed(0)+" %");
+      $("#pWarriorS").html(result.Warrior.toFixed(0)+" %");
+      //return result;
+    });
   }
 
   function auxReadPReset(){

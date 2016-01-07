@@ -30,26 +30,40 @@
 				<aside>
 					<form>
 						<input id="login" type="text" placeholder="Your Username">
-						<button name="personalS">Get Personal Stats</button>
-						<button>Get General Stats</button>
+						<button name="personalS" type="button">Get Personal Stats</button>
+						<button name="generalS" type="button">Get General Stats</button>
 						<p class="white optitle">Fetch another players stats</p>
 						<input id="otherI" type="text" placeholder="Other user">
-						<button name="otherS">Get Players Stats</button>
+						<button name="otherS" type="button">Get Players Stats</button>
 					</form>
 				</aside>
 				<section class="stats-section">
-					<article id="personalS" class="show">
+					<article id="personalS" class="hide">
 						<p class="stats-not-avail">No stats available</p>
 						<ul class="classL">
-							<li>Druid <p id="pDruidS">40</p>%</li>
-							<li>Hunter <p id="pHunterS">2</p>%</li>
-							<li>Mage <p id="pMageS">10</p>%</li>
-							<li>Paladin <p id="pPaladinS">4</p>%</li>
-							<li>Priest <p id="pPriestS">20</p>%</li>
-							<li>Rogue<p id="pRogueS">80</p>%</li>
-							<li>Shaman<p id="pShamanS">30</p>%</li>
-							<li>Warlock<p id="pWarlockS">2</p>%</li>
-							<li>Warrior<p id="pWarriorS">1</p>%</li>
+							<li>Druid <p id="pDruidS">N/A</p></li>
+							<li>Hunter <p id="pHunterS">N/A</p></li>
+							<li>Mage <p id="pMageS">N/A</p></li>
+							<li>Paladin <p id="pPaladinS">N/A</p></li>
+							<li>Priest <p id="pPriestS">N/A</p></li>
+							<li>Rogue<p id="pRogueS">N/A</p></li>
+							<li>Shaman<p id="pShamanS">N/A</p></li>
+							<li>Warlock<p id="pWarlockS">N/A</p></li>
+							<li>Warrior<p id="pWarriorS">N/A</p></li>
+						</ul>
+					</article>
+					<article id="generalS" class="hide">
+						<p class="stats-not-avail">No stats available</p>
+						<ul class="classL">
+							<li>Druid <p id="gDruidS">N/A</p></li>
+							<li>Hunter <p id="gHunterS">N/A</p></li>
+							<li>Mage <p id="gMageS">N/A</p></li>
+							<li>Paladin <p id="gPaladinS">N/A</p></li>
+							<li>Priest <p id="gPriestS">N/A</p></li>
+							<li>Rogue<p id="gRogueS">N/A</p></li>
+							<li>Shaman<p id="gShamanS">N/A</p></li>
+							<li>Warlock<p id="gWarlockS">N/A</p></li>
+							<li>Warrior<p id="gWarriorS">N/A</p></li>
 						</ul>
 					</article>
 				</section>
