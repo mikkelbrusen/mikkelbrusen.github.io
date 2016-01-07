@@ -25,3 +25,32 @@ aside{
 	margin-top: 20px;
     margin-bottom: 5px;
 }
+
+.stats-section{
+    float:left;
+    height: 100%;
+    padding-left: 30px;
+}
+
+#personalS{
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+.classL{
+    list-style:none;
+    color: white;
+
+    p{
+        margin: 0 3px;
+    }
+
+    li{
+        display: flex;
+    }
+}
+
+
+
+
