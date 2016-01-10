@@ -6,7 +6,7 @@ $(function() {
   // Buttons
   $("button[name='add']").click(add);
   $("button[name='personalS']").click(getPersonalStats);
-  //$("button[name='generalS']").click(getGeneralStats);
+  $("button[name='generalS']").click(getGeneralStats);
   //$("button[name='otherI']").click(getOtherInfo);
 
   // Authentication
@@ -56,13 +56,10 @@ $(function() {
   };
 
   function getPersonalStats(){
-    console.log("getPersonalStatsClicked");
-    
     var user = $('#login').val();
-    var stats = classes;
     auxReadPClass(user);
 
-
+    $("#generalS").removeClass("show").addClass("hide");
     $("#personalS").removeClass("hide").addClass("show");
   }
 
@@ -70,7 +67,6 @@ $(function() {
     client.stat("/space/Users/"+s+"/Statistics/",{"readDir":true},function(error,stat,cstats){
       if (error){
         console.log("user not found");
-        $(".stats-not-avail").setAttribute("class", "visible");
         return showError(error);
       }
       console.log("stats found");
@@ -96,11 +92,42 @@ $(function() {
     });
   }
 
-  function auxReadPReset(){
+  // Get General Statistics
 
+  function getGeneralStats(){
+    auxReadGClass();
+
+    $("#personalS").removeClass("show").addClass("hide");
+    $("#generalS").removeClass("hide").addClass("show");
   }
 
-  // Get General Statistics
+  function auxReadGClass(){
+    client.stat("/space/General/",{"readDir":true},function(error,stat,cstats){
+      if (error){
+        console.log("general not found");
+        return showError(error);
+      }
+      console.log("general stats found");
+
+      var temp = [];
+      var result = classes;
+      for (var i = cstats.length - 1; i >= 0; i--) {
+        temp = cstats[i].name.split("_");
+        result[temp[0]] = (parseFloat(temp[1])/(parseFloat(temp[2])+parseFloat(temp[1])))*100;
+      };
+      //$(".stats-not-avail").setAttribute("class", "hidden");
+      console.table(result);
+      $("#gDruidS").html(result.Druid.toFixed(0)+" %");
+      $("#gHunterS").html(result.Hunter.toFixed(0)+" %");
+      $("#gMageS").html(result.Mage.toFixed(0)+" %");
+      $("#gPaladinS").html(result.Paladin.toFixed(0)+" %");
+      $("#gPriestS").html(result.Priest.toFixed(0)+" %");
+      $("#gRogueS").html(result.Rogue.toFixed(0)+" %");
+      $("#gShamanS").html(result.Shaman.toFixed(0)+" %");
+      $("#gWarlockS").html(result.Warlock.toFixed(0)+" %");
+      $("#gWarriorS").html(result.Warrior.toFixed(0)+" %");
+    });
+  }
 
   // Get Other Statistics
 
