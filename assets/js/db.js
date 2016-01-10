@@ -8,6 +8,7 @@ $(function() {
   $("button[name='personalS']").click(getPersonalStats);
   $("button[name='generalS']").click(getGeneralStats);
   //$("button[name='otherI']").click(getOtherInfo);
+  $("button[name='getReq']").click(getReq);
 
   // Authentication
   var client = new Dropbox.Client({ key: "75ozb45t6z1tq24" });
@@ -43,20 +44,10 @@ $(function() {
   }
 
   // Get Personal Statistics
-  var classes = {
-    Druid:NaN,
-    Hunter:NaN,
-    Mage:NaN,
-    Paladin:NaN,
-    Priest:NaN,
-    Rogue:NaN,
-    Shaman:NaN,
-    Warlock:NaN,
-    Warrior:NaN
-  };
 
   function getPersonalStats(){
     var user = $('#login').val();
+
     auxReadPClass(user);
 
     $("#generalS").removeClass("show").addClass("hide");
@@ -70,9 +61,19 @@ $(function() {
         return showError(error);
       }
       console.log("stats found");
+      var result = {
+        Druid:NaN,
+        Hunter:NaN,
+        Mage:NaN,
+        Paladin:NaN,
+        Priest:NaN,
+        Rogue:NaN,
+        Shaman:NaN,
+        Warlock:NaN,
+        Warrior:NaN
+      };
 
       var temp = [];
-      var result = classes;
       for (var i = cstats.length - 1; i >= 0; i--) {
         temp = cstats[i].name.split("_");
         result[temp[0]] = (parseFloat(temp[1])/(parseFloat(temp[2])+parseFloat(temp[1])))*100;
@@ -110,7 +111,17 @@ $(function() {
       console.log("general stats found");
 
       var temp = [];
-      var result = classes;
+      var result = {
+        Druid:NaN,
+        Hunter:NaN,
+        Mage:NaN,
+        Paladin:NaN,
+        Priest:NaN,
+        Rogue:NaN,
+        Shaman:NaN,
+        Warlock:NaN,
+        Warrior:NaN
+      };
       for (var i = cstats.length - 1; i >= 0; i--) {
         temp = cstats[i].name.split("_");
         result[temp[0]] = (parseFloat(temp[1])/(parseFloat(temp[2])+parseFloat(temp[1])))*100;
@@ -134,6 +145,13 @@ $(function() {
   // Request Friendship
 
   // Accept Friendship
+
+  // Get Requests
+  function getReq(){
+    var user = $('#user').val();
+
+    $('#pending').append("<li>Pending Request From"+" Per");
+  }
 
 });
 

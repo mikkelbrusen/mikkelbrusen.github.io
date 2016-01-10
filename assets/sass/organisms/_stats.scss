@@ -5,20 +5,17 @@
     right: 0;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.58);
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 aside{
 	float: left;
     position: relative;
     width: 250px;
-    padding: 20px 0 0 10px;
+    padding:0 0 0 10px;
     height: 100%;
-
-    form{
-    	top: 50%;
-    	position: relative;
-    	transform: translateY(-50%);
-    }
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .optitle{
@@ -32,10 +29,23 @@ aside{
     padding-left: 30px;
 }
 
-.stats{
-    top: 50%;
+.friend-section{
+    float:right;
+    height: 100%;
+    padding-right: 30px;
+    width: 250px;
     position: relative;
-    transform: translateY(-50%);
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+
+    ul{
+        color: white;
+        list-style: none;
+    }
+
+    form{
+        bottom: 0px;
+        position: absolute;
+    }
 }
 
 .classL{
