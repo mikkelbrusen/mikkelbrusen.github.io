@@ -6,6 +6,10 @@ button{
 		color: white;
 		background: #313131;
 	}
+
+    &:focus{
+        color: white;
+    }
 }
 .white{
 	color: white;
