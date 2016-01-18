@@ -56,7 +56,6 @@ $(function() {
 
   function getPersonalStats(){
     var user = $('#login').val();
-
     var pat = /^[a-zA-Z0-9-]+$/;
 
     if(pat.test(user)){

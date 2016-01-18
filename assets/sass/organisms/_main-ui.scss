@@ -74,9 +74,9 @@ form{
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
-    -webkit-filter: grayscale(.5) opacity(.7);
-       -moz-filter: grayscale(.5) opacity(.7);
-            filter: grayscale(.5) opacity(.7);
+    -webkit-filter: opacity(.5);
+       -moz-filter: opacity(.5);
+            filter: opacity(.5);
 }
 .class-cc:hover{
     -webkit-filter: grayscale(.2) opacity(.9);
