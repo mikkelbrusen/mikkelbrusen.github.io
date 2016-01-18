@@ -1,7 +1,7 @@
 $(function() {
 
   ////////////////////////////////////////
-  //              Buttons               //
+  //     Bind function to buttons       //
   ////////////////////////////////////////
 
   $("button[name='add']").click(add);
@@ -33,19 +33,21 @@ $(function() {
   ////////////////////////////////////////
 
   function add(){
-    console.log("Add Clicked");
     var user = $('#user').val();
     var myClass = $('input[name="myClass"]:checked').val();
     var theirClass = $('input[name="theirClass"]:checked').val();
     var result = $('input[name="result"]:checked').val();
-    var count = Math.random().toString(36).substr(2, 5);
+    var id = Math.random().toString(36).substr(2,5);
+    var pat = /^[a-zA-Z0-9-]+$/;
 
-    client.writeFile("/space/Feed/"+user+"_"+myClass+"_"+theirClass+"_"+result+"."+count, "", function(error, stat) {
-      if (error) {
-        console.log("Error uploading");
-        return;
-      }     
-    });
+    if(pat.test(user)){
+      client.writeFile("/space/Feed/"+user+"_"+myClass+"_"+theirClass+"_"+result+"."+id, "", function(error, stat) {
+        if (error) {
+          console.log("Error uploading");
+          return;
+        }     
+      });
+    }
   }
 
   ////////////////////////////////////////
@@ -54,7 +56,12 @@ $(function() {
 
   function getPersonalStats(){
     var user = $('#login').val();
-    fetchAndUpdate("/space/Users/"+user+"/Statistics/");
+
+    var pat = /^[a-zA-Z0-9-]+$/;
+
+    if(pat.test(user)){
+      fetchAndUpdate("/space/Users/"+user+"/Statistics/");
+    }
   }
 
   ////////////////////////////////////////
@@ -71,17 +78,21 @@ $(function() {
   function getOtherStats(){
     var user = $("#login").val();
     var other = $('#otherI').val();
-    
-    // Check if friends
-    client.readFile("/space/Users/"+user+"/Access/"+other,null,function(error,s,stat){
-      if(error){
-        $("#stats").removeClass("show").addClass("hide");
-        return;
-      }
+    var pat = /^[a-zA-Z0-9-]+$/;
 
-      // If friends, then update
-      fetchAndUpdate("/space/Users/"+other+"/Statistics/");
-    });
+    if(pat.test(user)&&pat.test(other)){
+      // Check if friends
+
+      client.readFile("/space/Users/"+user+"/Access/"+other,null,function(error,s,stat){
+        if(error){
+          $("#stats").removeClass("show").addClass("hide");
+          return;
+        }
+
+        // If friends, then update
+        fetchAndUpdate("/space/Users/"+other+"/Statistics/");
+      });
+    }
   }
 
   ////////////////////////////////////////
@@ -92,13 +103,16 @@ $(function() {
     var user = $('#login').val();
     var other = $('#friend').val();
     var count = Math.random().toString(36).substr(2, 5);
+    var pat = /^[a-zA-Z0-9-]+$/;
 
-    client.writeFile("/space/Feed/"+"REQ_"+other+"_"+user+"."+count, "", function(error, stat) {
-      if (error) {
-        console.log("Error requesting");
-        return;
-      }
-    });
+    if(pat.test(user)&&pat.test(other)){
+      client.writeFile("/space/Feed/"+"REQ_"+other+"_"+user+"."+count, "", function(error, stat) {
+        if (error) {
+          console.log("Error requesting");
+          return;
+        }
+      });
+    }
   }
 
   ////////////////////////////////////////
@@ -114,17 +128,21 @@ $(function() {
 
     // Update with new data
     var user = $('#login').val();
-    client.stat("/space/Users/"+user+"/Request/",{"readDir":true},function(error,stat,cstats){
-      if (error){
-        console.log("Requests not found");
-        return;
-      }
+    var pat = /^[a-zA-Z0-9-]+$/;
 
-      var temp = [];
-      for (var i = cstats.length - 1; i >= 0; i--) {
-        $('#pending').append("<li>Pending Request From "+cstats[i].name);
-      };
-    });
+    if(pat.test(user)){
+      client.stat("/space/Users/"+user+"/Request/",{"readDir":true},function(error,stat,cstats){
+        if (error){
+          console.log("Requests not found");
+          return;
+        }
+
+        var temp = [];
+        for (var i = cstats.length - 1; i >= 0; i--) {
+          $('#pending').append("<li>Pending Request From "+cstats[i].name);
+        };
+      });
+    }
   }
 
   ////////////////////////////////////////
